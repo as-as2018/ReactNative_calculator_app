@@ -1,50 +1,104 @@
-# Welcome to your Expo app 👋
+# Calculator App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Project Description
+The Calculator App is a simple yet powerful application that allows users to perform basic arithmetic operations. It is designed to be user-friendly and efficient.
 
-## Get started
-
+## Installation & Run Instructions
 1. Install dependencies
-
    ```bash
    npm install
    ```
-
 2. Start the app
-
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Folder Structure
+- **app/**: Contains the main application files.
+- **components/**: Contains reusable UI components.
+  - **UI/**: Contains UI components like Display and CustomButton.
+- **assets/**: Contains images and fonts used in the application.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Component Documentation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Display Component
+- **Purpose**: Responsible for displaying the current input and result of the calculations.
+- **Functionality**: Updates the displayed value based on user input and calculation results.
+- **Props**:
+  - `value`: The current value to be displayed (string).
+- **Methods**: 
+  - `updateDisplay(value)`: Updates the display with the new value.
+- **Code Example**:
+  ```jsx
+  <Display value={currentValue} />
+  ```
+- **Stylesheet**: The associated stylesheet defines the layout and appearance of the display area.
 
-## Get a fresh project
+### CustomButton Component
+- **Purpose**: Represents a button in the calculator, handling user interactions.
+- **Functionality**: Triggers actions based on user clicks.
+- **Props**:
+  - `label`: The text to be displayed on the button (string).
+  - `onClick`: Function to be called when the button is clicked (function).
+- **Methods**: 
+  - `handleClick()`: Handles the button click event.
+- **Code Example**:
+  ```jsx
+  <CustomButton label="1" onClick={() => handleButtonClick('1')} />
+  ```
+- **Stylesheet**: The associated stylesheet defines the button's appearance and hover effects.
 
-When you're ready, run:
+## Functionalities
+- Perform addition, subtraction, multiplication, and division.
+- Clear the current input.
+- Display results in real-time.
 
+## Build Process
+### Installation of EAS CLI
+To install the EAS CLI, run:
 ```bash
-npm run reset-project
+npm install -g eas-cli
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Login
+Log in to your EAS account:
+```bash
+eas login
+```
 
-## Learn more
+### Build Configuration
+Configure the build:
+```bash
+eas build:configure
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Production Build
+To create a production build for Android, run:
+```bash
+eas build --platform android
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Preview Build
+For preview builds, ensure your `eas.json` configuration includes:
+```json
+"preview": {
+  "android": {
+    "buildType": "apk"
+  },
+  "distribution": "internal",
+  "channel": "preview"   
+}
+```
+Then run:
+```bash
+eas build --platform android --profile preview
+```
 
-## Join the community
+## Stylesheet Explanation
+Each component has an associated stylesheet that defines its layout, colors, and other visual properties. The styles are modular and reusable across different components.
 
-Join our community of developers creating universal apps.
+## Contribution Guidelines
+Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License Information
+This project is licensed under the MIT License.
