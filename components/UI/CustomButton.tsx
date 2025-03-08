@@ -9,7 +9,7 @@ const CustomButton = ({key,btn,handlePress}) => {
                 style={styles.button}
               >
                 <Text style={styles.buttonText}>{btn}</Text>
-              </TouchableOpacity>
+    </TouchableOpacity>
   );
 };
 
